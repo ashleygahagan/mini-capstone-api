@@ -2,33 +2,42 @@ class ProductsController < ApplicationController
 
   def index
     products = Product.all
-    render json: products.as_json
+    if params[:search]
+      products = Product.where("name iLIKE ?", "%#{params[:search]}%")
+    end
+    render json: products
   end
 
   def create
     product = Product.new(
       name: params[:name],
       price: params[:price],
-      image_url: params[:image_url],
-      description: params[:description]
+      description: params[:description],
+      quantity: params[:quantity]
     )
-    product.save
-    render json: product.as_json
+    if product.save
+      render json: product
+    else
+      render json: {errors: product.errors.full_message}, status: :unprocessable_entity
+    end
   end
 
   def show
     product = Product.find(params[:id])
-    render json: product.as_json
+    render json: product
   end
 
   def update
     product = Product.find(params[:id])
     product.name = params[:name] || product.name
     product.price = params[:price] || product.price
-    product.image_url = params[:image_url] || product.image_url
     product.description = params[:description] || product.description
-    product.save
-    render json: product.as_json
+    product.quantity = params[:quantity] || product.quantity
+    if product.save
+      render json: product
+    else
+      render json: {errors: product.errors.full_message}, status: :unprocessable_entity
+    end
   end
 
   def destroy
