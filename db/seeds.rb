@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Category.create(name: "Full Shade")
+
+# Category.create(name: "Full Sun")
+
+# Category.create(name: "Indoor")
+
+
 # Supplier.create(name: "Mother Earth", email: "motherearth@gmail.com", phone_number: "111-2222")
 
 # Supplier.create(name: "The Ground", email: "ground@gmail.com", phone_number: "123-4567")
@@ -29,7 +36,7 @@
 # Image.create(url: "https://www.edenbrothers.com/store/media/Seeds-Flowers/Foxglove-Mix.jpg", product_id: 18)
 # Image.create(url: "https://bluestoneperennials.global.ssl.fastly.net/img/DESB/650/DESB_0_delphinium_elatum_sky_blue_fg.1491365334.jpg", product_id: 19)
 
-Image.create(url: "https://www.whiteflowerfarm.com/mas_assets/cache/image/6/3/d/1/25553.Jpg", product_id: 1)
+# Image.create(url: "https://www.whiteflowerfarm.com/mas_assets/cache/image/6/3/d/1/25553.Jpg", product_id: 1)
 
 
 # Product.create(name: "Hydrangea", price: 20, image_url: "https://www.gardeningknowhow.com/wp-content/uploads/2008/09/hydrangea.jpg", description:"Hydrangea flowers are produced from early spring to late autumn; they grow in flowerheads (corymbs or panicles) most often at the ends of the stems.")

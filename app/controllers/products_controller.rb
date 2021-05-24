@@ -1,9 +1,15 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
     products = Product.all
-    if params[:search]
-      products = Product.where("name iLIKE ?", "%#{params[:search]}%")
+    # if params[:search]
+    #   products = Product.where("name iLIKE ?", "%#{params[:search]}%")
+    # end
+    if params[:category]
+      category = Category.find_by("name iLIKE ?", params[:category])
+      products = category.products
     end
     render json: products
   end
